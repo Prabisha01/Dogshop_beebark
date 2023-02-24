@@ -1,0 +1,82 @@
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bee bark</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" th:href="@{/images/ServicesImages/logo.png}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <!--    <script defer th:src="@{~/javascript/disableDate.js}"></script>-->
+
+
+
+    <title>Booking</title>
+</head>
+
+<section class="register">
+
+    <form th:method ="post" th:action="@{/user/savebook}" th:object="${booking}">
+        <h3>Order now</h3>
+
+        <input type="text" name="fullname" placeholder="Full Name" th:field="*{fullname}" th:value="${booking.fullname}" required class="box">
+        <input type="number" name="Phone" placeholder="Mobile" th:field="*{mobile_no}" th:value="${booking.mobile_no}" required class="box">
+        <input type="number" name="number"placeholder="No of Dog"  th:field="*{noofdog}" onkeyup="mult(this.value);" th:value="${noofdog}" required class="box">
+
+        <input type="text" name="Address" placeholder="Address"  th:field="*{address}" th:value="${address}" required class="box">
+        <input type="number" name="Price" placeholder="Price" th:field="*{price}" id="Price" th:value="${price}" required class="box">
+        <input type="date" name="date"  placeholder="date"  th:field="*{checkin}" th:value="${booking.checkin}" required class="box">
+        <button class="btn link" onclick="myFunction()">Buy Now</button>
+        <a  th:href="@{~/user/homepage}" class="btn link">Cancel now</a>
+    </form>
+
+</section>
+<script>
+    function mult(value){
+        var x;
+        x=1500*value;
+        document.getElementById("Price").value=x;
+    }
+
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("checkInDate").setAttribute("min", today);
+        document.getElementById("checkOutDate").setAttribute("min", today);
+    });
+
+</script>
+<script>
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '/' + mm + '/' + dd;
+    var val=document.getElementById("date");
+    val.setAttribute("value",today);
+
+</script>
+</body>
+</html>

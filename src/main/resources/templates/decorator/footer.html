@@ -39,10 +39,10 @@
         <div class="box">
             <h3>Quick links</h3>
             <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Home </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> About </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Breeds </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Blogs </a>
-            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> Contact </a>
+            <a th:href="@{/user/about}" class="links"> <i class="fas fa-arrow-right"></i> About </a>
+            <a th:href="@{/user/viewProduct}" class="links"> <i class="fas fa-arrow-right"></i> Breeds </a>
+            <a th:href="@{/user/viewGallery}" class="links"> <i class="fas fa-arrow-right"></i> Blogs </a>
+            <a th:href="@{/user/contact}" class="links"> <i class="fas fa-arrow-right"></i> Contact </a>
 
         </div>
 
@@ -53,3 +53,4 @@
 </section>
 </body>
 </html>
+

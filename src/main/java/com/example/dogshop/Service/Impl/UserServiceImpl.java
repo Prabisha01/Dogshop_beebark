@@ -1,9 +1,11 @@
 package com.example.dogshop.Service.Impl;
 
+import com.example.dogshop.Entity.Booking;
 import com.example.dogshop.Entity.Contact;
 import com.example.dogshop.Entity.User;
 import com.example.dogshop.Pojo.ContactPojo;
 import com.example.dogshop.Pojo.UserPojo;
+import com.example.dogshop.Repo.BookingRepo;
 import com.example.dogshop.Repo.ContactRepo;
 import com.example.dogshop.Repo.UserRepo;
 import com.example.dogshop.Security.PasswordEncoderUtil;
@@ -33,13 +35,14 @@ import java.util.*;
 public class UserServiceImpl implements UserService {
     public final UserRepo userRepo;
     public final ContactRepo contactRepo;
-   private final JavaMailSender mailSender;
-   private final ThreadPoolTaskExecutor taskExecutor;
+    public final BookingRepo bookingRepo;
+    private final JavaMailSender mailSender;
+    private final ThreadPoolTaskExecutor taskExecutor;
 
-   @Autowired
-   @Qualifier("emailConfigBean")
+    @Autowired
+    @Qualifier("emailConfigBean")
 
-   private Configuration emailConfig;
+    private Configuration emailConfig;
 
     @Override
     public User fetchById(Integer id) {
@@ -106,25 +109,24 @@ public class UserServiceImpl implements UserService {
 //        }
 
 
-
     @Override
     public void deleteById(Integer id) {
         userRepo.deleteById(id);
     }
 
 
-
-    private void sendPassword(String email, String password ){
+    private void sendPassword(String email, String password) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
         message.setSubject("Your new password is:");
         message.setText(password);
         mailSender.send(message);
     }
+
     @Override
-    public void processPasswordResetRequest(String email){
+    public void processPasswordResetRequest(String email) {
         Optional<User> optionalUser = userRepo.findByEmail(email);
-        if(optionalUser.isPresent()){
+        if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             String password = generatePassword();
             sendPassword(email, password);
@@ -134,6 +136,7 @@ public class UserServiceImpl implements UserService {
             userRepo.save(user);
         }
     }
+
     @Override
     public void sendEmail() {
         try {
@@ -160,15 +163,16 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
     }
+
     @Override
     public String updateResetPassword(String email) {
         User user = (User) userRepo.findByEmail(email)
-                .orElseThrow(()-> new RuntimeException("Invalid User email"));
+                .orElseThrow(() -> new RuntimeException("Invalid User email"));
         String updated_password = generatePassword();
         try {
             userRepo.updatePassword(updated_password, email);
             return "CHANGED";
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "ds";
@@ -176,17 +180,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Contact CdeleteById(Integer id) {
-            return contactRepo.findById(id).orElseThrow(()->new RuntimeException("not found"));
-        }
+        return contactRepo.findById(id).orElseThrow(() -> new RuntimeException("not found"));
+    }
 
     @Override
     public List<Contact> fetchAllContact() {
-            return this.contactRepo.findAll();
-        }
+        return this.contactRepo.findAll();
+    }
 
     @Override
     public User userById(Integer id) {
-        return userRepo.findById(id).orElseThrow(()->new RuntimeException("not found"));
+        return userRepo.findById(id).orElseThrow(() -> new RuntimeException("not found"));
     }
 
     @Override
@@ -200,16 +204,16 @@ public class UserServiceImpl implements UserService {
         String password = "";
         Random r = new Random();
         for (int i = 0; i < length; i++) {
-            int randomChar = (int)(r.nextInt(94) + 33);
-            char c = (char)randomChar;
+            int randomChar = (int) (r.nextInt(94) + 33);
+            char c = (char) randomChar;
             password += c;
         }
         return password;
 
-        }
     }
 
 
+}
 
 
 

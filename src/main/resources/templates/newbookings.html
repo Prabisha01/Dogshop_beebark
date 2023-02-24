@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/newbookings.css}">
+    <title>Booking</title>
+</head>
+
+<body class="main_bg">
+<div class="Main-wrapper">
+    <div class="form-text">
+
+    </div>
+    <div class="wrapper-bottom">
+        <form th:method="post" th:action="@{/admin/savenewbook}" th:object="${newBooking}">
+            <input type="number"   hidden th:field="*{id}" th:value="${newBooking.id}">
+            <!--                <span th:text="${newBooking.fullname}"></span>-->
+            <div>
+                <span>Your full name ?</span>
+                <input type="text" name="name"  placeholder="Write your name here..." required th:field="*{fullname}" th:value="${newBooking.fullname}">
+            </div>
+
+            <div>
+                <span> Noofplant</span>
+                <input type="text" name="name"  placeholder="Number of plants.." required th:field="*{noofplant}" th:value="${newBooking.noofplant}">
+            </div>
+            <div>
+                <span>Your Price ?</span>
+                <input type="number" name="number" id="amount" placeholder="price" required th:field="*{price}" th:value="${newBooking.price}">
+            </div>
+            <div>
+                <span>Your Address ?</span>
+                <input type="text" name="number" id="text" placeholder="Address" required th:field="*{address}" th:value="${newBooking.address}">
+            </div>
+
+            <div>
+                <span>What is the date ?</span>
+                <input type="date" name="date" id="dateA" placeholder="date" required th:field="*{date}" th:value="${newBooking.date}" >
+            </div>
+            <div>
+                <span>Your phone number ?</span>
+                <input type="number" name="number" id="number" placeholder="Write your number here..." required th:field="*{mobile_no}" th:value="${newBooking.mobile_no}">
+            </div>
+
+            <div id="submit">
+                <input type="submit" value="SUBMIT">
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

@@ -3,8 +3,10 @@ package com.example.dogshop.Controller;
 import com.example.dogshop.Entity.Gallery;
 import com.example.dogshop.Entity.Product;
 import com.example.dogshop.Entity.User;
+import com.example.dogshop.Pojo.BookingPojo;
 import com.example.dogshop.Pojo.ContactPojo;
 import com.example.dogshop.Pojo.UserPojo;
+import com.example.dogshop.Service.BookingService;
 import com.example.dogshop.Service.GalleryService;
 import com.example.dogshop.Service.ProductServices;
 import com.example.dogshop.Service.UserService;
@@ -32,6 +34,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class  UserController {
     private final UserService userService;
+    private final BookingService bookingService;
     private final GalleryService galleryServices;
     private final ProductServices productServices;
     private final ValidationAutoConfiguration validationAutoConfiguration;
@@ -193,4 +196,18 @@ public class  UserController {
                 "check your inbox");
         return "redirect:/user/login";
     }
+    @GetMapping("/booking")
+    public String BookHotel(Model model) {
+        model.addAttribute("booking", new BookingPojo());
+        return "booking";
+    }
+
+
+    @PostMapping("/savebook")
+    public String saveBooking(@Valid BookingPojo bookingPojo) {
+        bookingService.save(bookingPojo);
+        return "homepage";
+    }
+
+
 }

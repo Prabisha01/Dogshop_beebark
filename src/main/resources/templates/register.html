@@ -27,11 +27,11 @@
     <form th:method ="post" th:action="@{/user/save}" th:object="${user}">
         <h3>register now</h3>
 
-        <input type="text" name="fullname" placeholder="Full Name" th:field="*{fullname}" th:value="${user.fullname}"  class="box">
-        <input type="email" name="email" placeholder="Email"  th:field="*{email}" th:value="${user.email}" class="box">
-        <input type="text" name="address" placeholder="Address"  th:field="*{address}" th:value="${user.address}" class="box">
-        <input type="password" name="password" placeholder="Password" th:field="*{password}" th:value="${user.password}" id="" class="box">
-        <input type="number" name="mobile" placeholder="Mobile No" th:field="*{mobile}" th:value="${user.mobile}" id="" class="box">
+        <input type="text" name="fullname" placeholder="Full Name" th:field="*{fullname}" th:value="${user.fullname}" required class="box">
+        <input type="email" name="email" placeholder="Email"  th:field="*{email}" th:value="${user.email}"  required class="box">
+        <input type="text" name="address" placeholder="Address"  th:field="*{address}" th:value="${user.address}" required class="box">
+        <input type="password" name="password" placeholder="Password" th:field="*{password}" th:value="${user.password}" required id="" class="box">
+        <input type="number" name="mobile" placeholder="Mobile No" th:field="*{mobile}" th:value="${user.mobile}" id="" required class="box">
         <input type="submit" value="register now" class="btn">
         <p>already have an account?</p>
         <a href="login.html" class="btn link">login now</a>

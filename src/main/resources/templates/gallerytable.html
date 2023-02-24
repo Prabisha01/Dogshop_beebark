@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/adminnav.css}">
     <style>
 
 
@@ -27,12 +28,75 @@
         }
     </style>
 </head>
+<body>
 
-<body style="margin:20px auto">
-<div class="container">
-    <div class="row header" style="text-align:center;color:#151313">
-        <h3>Admin Gallery</h3>
-    </div>
+<div class="grid-container">
+
+    <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="main-title">
+            <h2>Welcome to the Gallery Section</h2>
+        </div>
+
+    </header>
+
+    <aside id="sidebar">
+
+
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <a th:href="@{/admin/dashboard}">
+                    <span class="title">Educare</span>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a th:href="@{~/admin/alllist}">
+                     <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span> Order</a>
+            </li>
+            <li class="sidebar-list-item">
+                <a th:href="@{~/admin/listproduct}">
+                            <span class="icon">
+                                <ion-icon name="Add"></ion-icon>
+                            </span>
+                    <span class="title">Add Breed</span>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a th:href="@{~/admin/list}">
+                            <span class="icon">
+                                <ion-icon name="Add">
+
+                                </ion-icon>
+                            </span>
+                    <span class="title">Add Gallery</span>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a th:href="@{~/admin/contactlist}">
+                            <span class="icon">
+                                <ion-icon  name="chatbubble-outline"></ion-icon>
+                            </span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a th:href="@{/logout}">
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+
+    <div class="container">
+
 <button class="btnmain"><a th:href="@{~/admin/addGallery}">Add Gallery</a></button>
     <table id="myTable" class="table table-striped table-bordered table-responsive table-hover" >
     <thead>
@@ -80,5 +144,8 @@
         $('#myTable').dataTable();
     });
 </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</div>
 </body>
 </html>

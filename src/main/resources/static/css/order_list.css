@@ -1,0 +1,61 @@
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.order-table {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+.content-table {
+    border-collapse: collapse;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #09ff1f;
+}
+.content-table thead tr {
+    background-color: #069d14;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+    height: 40px;
+}
+.content-table tr {
+    height: 50px;
+    width: 10px;
+    background-color: #3A3A3A;
+}
+.content-table th {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+    color: black;
+}
+.content-table td {
+    padding: 12px 15px;
+    color: black;
+    border-bottom: 1px solid #dddddd;
+}
+
+.edit-button, .delete-button {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-size: 13px;
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+}
+.edit-button:hover, .delete-button:hover {
+    color: #327238;
+}
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-right: 5px;
+    border-style: none;
+}
