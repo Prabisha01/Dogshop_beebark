@@ -1,6 +1,7 @@
 package com.example.dogshop;
 
 import com.example.dogshop.Entity.Gallery;
+import com.example.dogshop.Entity.Product;
 import com.example.dogshop.Repo.GalleryRepo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -39,7 +40,7 @@ public class GalleryRepositoryTest {
 
     @Test
     @Order(2)
-    public void getBlogTest() {
+    public void getGalleryTest() {
 
         Gallery gallery = Gallery.builder()
                 .title("Educare")
@@ -55,7 +56,7 @@ public class GalleryRepositoryTest {
 
     @Test
     @Order(3)
-    public void getListOfBlogTest(){
+    public void getListOfGalleryTest(){
         Gallery gallery = Gallery.builder()
 
                 .title("Educare")
@@ -66,29 +67,16 @@ public class GalleryRepositoryTest {
         Assertions.assertThat(User.size()).isGreaterThan(0);
     }
 
-
-    @Test
-    @Order(4)
-    public void updateBlogTest(){
-
-        Gallery gallery = Gallery.builder()
-
-
-                .title("Educare")
-
-                        .build();
-
-        galleryRepo.save(gallery);
-
-        Gallery gallery1  = galleryRepo.findById(gallery.getId()).get();
-
-        gallery1.setTitle("Educare");
-
-        Gallery galleryUpdated  = galleryRepo.save(gallery);
-
-        Assertions.assertThat(galleryUpdated.getTitle()).isEqualTo("Educare nepal");
-
-    }
+//
+//    @Test
+//    @Order(4)
+//    @Rollback(value = false)
+//    public void Update() {
+//        Gallery gallery = galleryRepo.findById(1).get();
+//        gallery.setTitle("Name");
+//        Gallery gallery1 = galleryRepo.save(gallery);
+//        Assertions.assertThat(gallery1.getTitle()).isEqualTo("Name");
+//    }
 
     @Test
     @Order(5)

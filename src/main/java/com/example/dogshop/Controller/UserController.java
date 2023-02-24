@@ -88,6 +88,7 @@ public class  UserController {
     }
 
 
+
     @GetMapping("/profile/{id}")
     public String getUserProfile(@PathVariable("id") Integer id, Model model) {
 
@@ -163,7 +164,7 @@ public class  UserController {
     @PostMapping("/send-message")
     public String submitMessage(@Valid ContactPojo contactPojo) {
         userService.submitMsg(contactPojo);
-        return "redirect:/homepage";
+        return "redirect:/user/contact";
     }
 
     public String getImageBase64(String fileName) {

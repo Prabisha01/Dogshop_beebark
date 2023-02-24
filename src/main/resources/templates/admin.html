@@ -18,13 +18,13 @@
     <div class="navigation">
         <ul>
             <li>
-                <a href="@{/admin/dashboard}">
+                <a th:href="@{/admin/dashboard}">
                      <span class="title">Educare</span>
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a th:href="@{~/admin/userlist}">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -42,7 +42,7 @@
             </li>
 
             <li>
-                <a th:href="@{~/admin/addGallery}">
+                <a th:href="@{~/admin/list}">
                             <span class="icon">
                                 <ion-icon name="Add">
 
@@ -53,7 +53,7 @@
             </li>
 
             <li>
-                <a th:href="@{~/admin/contact}">
+                <a th:href="@{~/admin/contactlist}">
                             <span class="icon">
                                 <ion-icon  name="chatbubble-outline"></ion-icon>
                             </span>
@@ -81,11 +81,6 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
 
-
-            <div class="user">
-                <img src="Static/images/customer.jpg" alt="">
-            </div>
-        </div>
 
 
         <div class="cardBox">
@@ -135,6 +130,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="Static/javascript/main.js"></script>
 

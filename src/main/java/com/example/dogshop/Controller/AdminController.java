@@ -1,7 +1,9 @@
 package com.example.dogshop.Controller;
 
+import com.example.dogshop.Entity.Contact;
 import com.example.dogshop.Entity.Gallery;
 import com.example.dogshop.Entity.Product;
+import com.example.dogshop.Entity.User;
 import com.example.dogshop.Pojo.GalleryPojo;
 import com.example.dogshop.Pojo.ProductPojo;
 import com.example.dogshop.Service.GalleryService;
@@ -86,7 +88,7 @@ public class AdminController {
     @GetMapping("/deleteGallery/{id}")
     public String deleteGallery(@PathVariable("id") Integer id) {
         galleryServices.deleteById(id);
-        return "redirect:/gallery/list";
+        return "redirect:/admin/list";
     }
 
     public Map<String, String> validateRequest(BindingResult bindingResult) {
@@ -170,4 +172,36 @@ public class AdminController {
         ));
         return "producttable";
     }
+    @GetMapping("/deleteContact/{id}")
+    public String deleteContact(@PathVariable("id") Integer id) {
+        userService.CdeleteById(id);
+        return "redirect:/admin/contactlist";
+    }
+    @GetMapping("/contactlist")
+    public String getContactList(Model model) {
+        List<Contact> contacts = userService.fetchAllContact();
+        model.addAttribute("contact", contacts);
+        return "contacttable";
+    }
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") Integer id) {
+        userService.userById(id);
+        return "redirect:/admin/userlist";
+    }
+    @GetMapping("/userlist")
+    public String getUserList(Model model) {
+        List<User> users = userService.fetchAllUser();
+        model.addAttribute("userlist", users.stream().map(user ->
+                User.builder()
+                        .id(user.getId())
+                        .address(user.getAddress())
+                        .email(user.getEmail())
+                        .fullname(user.getFullname())
+                        .mobile(user.getMobile())
+                        .build()
+
+        ));
+        return "usertable";
+    }
+
 }

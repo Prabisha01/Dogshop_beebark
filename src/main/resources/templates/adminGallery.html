@@ -5,10 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Gallery</title>
+    <style>
+        .uplaod_gallery {
+            background-color: #6fcaf8;
+            box-shadow: #060537;
+            width: 500px;
+            padding-left: 250px;
 
+
+        }
+        .button {
+            background-color: #2740a2;
+            color: whitesmoke;
+            width: 80px;
+            height: 40px;
+        }
+        .addproduct{
+            background-color: #060537;
+            color: white;
+            width:500px;
+            padding-left: 250px;
+        }
+    </style>
 </head>
 <body>
-<h1>Add Gallery</h1>
+<h1 class ="addproduct" >Add Gallery</h1>
 <div class="uplaod_gallery">
     <form id="add-post-form" th:method="post" th:action="@{/admin/save}" th:object="${gallery}" enctype="multipart/form-data">
 
@@ -23,7 +44,7 @@
         <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
 
 
-        <button type="submit">Submit</button>
+        <button class="button"  type="submit">Submit</button>
 
 
         <script>

@@ -1,5 +1,6 @@
 package com.example.dogshop.Service;
 
+import com.example.dogshop.Entity.Contact;
 import com.example.dogshop.Entity.User;
 import com.example.dogshop.Pojo.ContactPojo;
 import com.example.dogshop.Pojo.UserPojo;
@@ -25,4 +26,11 @@ public interface UserService {
 
     String updateResetPassword(String email);
 
+    Contact CdeleteById(Integer id);
+
+    List<Contact> fetchAllContact();
+
+    User userById(Integer id);
+
+    List<User> fetchAllUser();
 }

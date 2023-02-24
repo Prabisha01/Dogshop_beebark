@@ -27,7 +27,6 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.concurrent.ThreadPoolExecutor;
 
 @Service
 @RequiredArgsConstructor
@@ -174,6 +173,27 @@ public class UserServiceImpl implements UserService {
         }
         return "ds";
     }
+
+    @Override
+    public Contact CdeleteById(Integer id) {
+            return contactRepo.findById(id).orElseThrow(()->new RuntimeException("not found"));
+        }
+
+    @Override
+    public List<Contact> fetchAllContact() {
+            return this.contactRepo.findAll();
+        }
+
+    @Override
+    public User userById(Integer id) {
+        return userRepo.findById(id).orElseThrow(()->new RuntimeException("not found"));
+    }
+
+    @Override
+    public List<User> fetchAllUser() {
+        return this.userRepo.findAll();
+    }
+
 
     public String generatePassword() {
         int length = 8;
