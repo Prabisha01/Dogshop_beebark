@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> Gallery Table </title>
+    <meta name="description" content="Bootstrap.">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <style>
+
+
+        .btnmain{
+            background-color: #6fcaf8;
+            padding: 5px;
+
+        }
+        .editbtn{
+            background-color: skyblue;
+
+        }
+        .deletebtn{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body style="margin:20px auto">
+<div class="container">
+    <div class="row header" style="text-align:center;color:#151313">
+        <h3>Admin Gallery</h3>
+    </div>
+<button class="btnmain"><a th:href="@{~/admin/addGallery}">Add Gallery</a></button>
+    <table id="myTable" class="table table-striped table-bordered table-responsive table-hover" >
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <p th:if="${successMsg}" th:text="${successMsg}"></p>
+        <p th:if="${deleteMsg}" th:text="${deleteMsg}"></p>
+        <tr th:each="gallery:${gallerylist}">
+            <td th:text="${gallery.id}"></td>
+            <td th:text="${gallery.title}"></td>
+
+
+            <td>
+                <img th:src="'data:image/png;base64,'+${gallery.imageBase64}" width="100" height="100"/>
+            </td>
+
+
+            <td>
+                <button class="editbtn"> <a class="edit" th:href="@{~/admin/editGallery/}+${gallery.id}">Edit</a></button>
+                <button class="deletebtn"><a class="delete" th:href="@{~/admin/deleteGallery/}+${gallery.id}">Delete</a></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    let mypage="gallery";
+    let listgroupItem=Array.from(document.getElementsByClassName("list-group-item"));
+    listgroupItem.forEach(i=>{
+        i.classList.remove("active");
+    })
+    let activeId=document.getElementById(mypage);
+    activeId.classList.add("active");
+
+</script>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+</script>
+</body>
+</html>

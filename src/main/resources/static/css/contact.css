@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+html {
+    overflow-x: hidden;
+    font-size: 62.5%;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgba(25, 158, 192, 0.63);
+    border-radius: 5rem;
+}
+
+body {
+    background: #eee;
+}
+
+section {
+    padding: 3rem 9%;
+}
+
+
+
+@-webkit-keyframes fadeIn {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+
+
+
+.contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contact form {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+    flex: 1 1 42rem;
+}
+
+.contact form h3 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #333;
+    padding-bottom: 1rem;
+}
+
+.contact form p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.contact form .inputBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.contact form .inputBox input {
+    width: 49%;
+}
+
+.contact form .inputBox input, .contact form textarea {
+    padding: 1.2rem 1.4rem;
+    border-radius: .5rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgb(39, 64, 162);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    border: 0.2rem solid #151313;
+    background: rgb(255, 255, 255);
+    text-transform: none;
+    color: #151313;
+    font-size: 1.5rem;
+    margin: .7rem 0;
+}
+
+.contact form textarea {
+    height: 15rem;
+    resize: none;
+    width: 50%;
+    float: right;
+}
+
+.contact .map {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+    flex: 1 1 42rem;
+    width: 100%;
+    float :left;
+}
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    border-radius: .5rem;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(25, 158, 192, 0.63);
+}
+
+.btn:hover{
+    background-color: #0984e3;
+}
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+</head>
+<body>
+<div th:replace="~{/decorator/header.html}"></div>
+
+<section class="login">
+
+    <form  th:method="post" th:action="@{/user/save}" th:object="${user}" >
+        <h3>Update Profile</h3>
+        <input class="box" type="text" name="id"  hidden = "hidden" placeholder="id" th:field ="*{id}" th:value="${prof.getId()}">
+
+        <input class="box" type="text" name="name" placeholder="Full Name" th:field ="*{fullname}" th:value="${prof.getFullname()}">
+        <input class="box"  type="email" name="email" placeholder="Email address" th:field ="*{email}" th:value="${prof.getEmail()}">
+        <input class="box"  type="number" name="number" placeholder="Mobile Number"th:field ="*{mobile}" th:value="${prof.getMobile()}">
+        <input class="box"  type="text" name="address" placeholder="Address" th:field ="*{address}" th:value="${prof.getAddress()}">
+        <input class="box" type="text" name="id"  hidden = "hidden" placeholder="password" th:field ="*{password}" th:value="${prof.getPassword()}">
+        <input type="submit" value="Update" class="btn" th:href ="@{/user/edit} + ${prof.id}">
+        <a type="submit"  class="btn" th:href="@{/logout}">Logout</a>
+    </form>
+
+</section>
+
+<div th:replace="~{/decorator/footer.html}"></div>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+</body>
+</html>

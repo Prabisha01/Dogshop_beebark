@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- cusom css file link  -->
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+</head>
+<body>
+
+<div th:replace="~{/decorator/header.html}"></div>
+
+<section class="register">
+
+    <form th:method ="post" th:action="@{/user/save}" th:object="${user}">
+        <h3>register now</h3>
+
+        <input type="text" name="fullname" placeholder="Full Name" th:field="*{fullname}" th:value="${user.fullname}"  class="box">
+        <input type="email" name="email" placeholder="Email"  th:field="*{email}" th:value="${user.email}" class="box">
+        <input type="text" name="address" placeholder="Address"  th:field="*{address}" th:value="${user.address}" class="box">
+        <input type="password" name="password" placeholder="Password" th:field="*{password}" th:value="${user.password}" id="" class="box">
+        <input type="number" name="mobile" placeholder="Mobile No" th:field="*{mobile}" th:value="${user.mobile}" id="" class="box">
+        <input type="submit" value="register now" class="btn">
+        <p>already have an account?</p>
+        <a href="login.html" class="btn link">login now</a>
+    </form>
+
+</section>
+<div th:replace="decorator/footer.html "></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+</head>
+<body>
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">BeeBark</label>
+
+    <ul>
+        <li><a class="active" href="@{/user/homepage}">Home</a></li>
+        <li><a href="@{/user/about}">About</a></li>
+        <li><a href="#">Breed</a></li>
+        <li><a th:href="@{/user/contact}">Contact</a></li>
+        <li><a th:href="@{/user/view}">Gallery</a></li>
+        <li><a th:href="@{/user/create}">Signup</a></li>
+    </ul>
+</nav>
+
+<section class="login">
+
+    <form  th:method="post" th:action="@{/login}" >
+        <h3>login now</h3>
+        <input type="Email" name="email" placeholder="Enter the Email"  class="box">
+        <input type="Password" name="password" placeholder="Enter your password" th:onclick="validateEmail()"  class="box" required autofocus/>
+        <input type="submit" value="login now" class="btn" onclick="fill()">
+        <p>don't have an account?</p>
+        <a th:href="@{/user/create}" class="btn link">register now</a>
+        <p>Forgot Password</p>
+        <a th:href="@{/user/forgotpassword}" class="btn link">Forgot Password</a>
+    </form>
+
+</section>
+
+<div th:replace="decorator/footer.html "></div>
+
+<!-- swiper js link      -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+</body>
+</html>

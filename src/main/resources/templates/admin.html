@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{~/css/admin.css}">
+
+</head>
+
+<body>
+
+<body>
+
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="@{/admin/dashboard}">
+                     <span class="title">Educare</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                    <span class="title">Customers</span>
+                </a>
+            </li>
+
+            <li>
+                <a th:href="@{~/admin/listproduct}">
+                            <span class="icon">
+                                <ion-icon name="Add"></ion-icon>
+                            </span>
+                    <span class="title">Add Breed</span>
+                </a>
+            </li>
+
+            <li>
+                <a th:href="@{~/admin/addGallery}">
+                            <span class="icon">
+                                <ion-icon name="Add">
+
+                                </ion-icon>
+                            </span>
+                    <span class="title">Add Gallery</span>
+                </a>
+            </li>
+
+            <li>
+                <a th:href="@{~/admin/contact}">
+                            <span class="icon">
+                                <ion-icon  name="chatbubble-outline"></ion-icon>
+                            </span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a th:href="@{/logout}">
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+
+            <div class="user">
+                <img src="Static/images/customer.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="cardBox">
+            <div class="card">
+                <div>
+                    <div class="numbers">17</div>
+                    <div class="cardName">Gallery</div>
+                </div>
+
+                <div class="iconBx">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="numbers">3</div>
+                    <div class="cardName">Product</div>
+                </div>
+
+                <div class="iconBx">
+                    <ion-icon name="book"></ion-icon>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="numbers">2</div>
+                    <div class="cardName">Message</div>
+                </div>
+
+                <div class="iconBx">
+                    <ion-icon name="chatbubbles-outline"></ion-icon>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="numbers"> 7</div>
+                    <div class="cardName">Order</div>
+                </div>
+
+                <div class="iconBx">
+                    <ion-icon name="cash-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="Static/javascript/main.js"></script>
+
+
+<script src="Static/javascript/chartsJS.js"></script>
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>
